@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+</head>
+
+<body>
+    <header>
+        <img src="flipkart.svg" alt="image not found">
+        <input id="search" type="text" placeholder=" &#128269; Search for Products, Brands and More...">
+        <h3><i class="fas fa-user fa-xs" style="color: #107bd4;"></i> Praveen</h3>
+        <h3 id="addItem" class="addItem" onclick="openEditModal()"><i class="fas fa-plus fa-xs" style="color: #107bd4;"></i> ADD ITEM</h3>
+        <h3><i class="fas fa-house-user fa-xs" style="color: #107bd4;"></i> Become a Merchant</h3>
+        <h3 class="menu-bar"><i class="fas fa-bars" style="color: #107bd4;"></i></h3>
+    </header>
+    <main>
+        <section id="productDiv">
+        <div id="products" class="products">
+            <!-- < id="product" class="product">
+                <div id="productImg" class="productImg">
+                    <img src="https://cdn.dummyjson.com/product-images/1/1.jpg" alt="">
+                </div>
+                <div id="productInfo" class="productInfo">
+                    <h3>Category: Smartphone</h3>
+                    <h3>Brand : Apple</h3>
+                    <h4>Model : Iphone 9</h4>
+                    <h4 class="des">An apple mobile which is nothing like apple</h4>
+                    <h4><span id="rating">4.4&#9734;</span><span id="stockLeft"> (10 Left)</span></h4>
+                    <h4>Price : 500$</h4>
+                    <h4 class="discount">20% off</h4>
+                </div>
+                <div id="buttons" class="buttons">
+                    <button class="editBtn btn">EDIT</button>
+                    <button class="deleteBtn btn">DELETE</button>
+                </div>
+            </div> -->
+        </div>
+        </section>
+        <section id="editModal" class="editModal">
+        <!-- <div id="product" class="editproduct">
+            <div id="productImg" class="productImg">
+                <img src="${data.images[0]}" alt="image not found">
+            </div>
+            <div id="productInfo" class="productInfo">
+                <h3>Category: ${data.category} <span id="pId">(PID:${data.id})</span></h3>
+                <h3>Brand: ${data.brand}</h3>
+                <label for="pModel">Model : </label>
+                <input id="pModel eInput" type="text" value="${data.title}"> <br>
+                <label for="pDescrip">Description : </label>
+                <input id="pDescrip eInput" type="text" value="${data.description}"><br>
+                <label for="pPrice">Price : </label>
+                <input id="pPrice eInput" type="number" value="${data.price}">
+                <h4><span id="rating">${data.rating}&#9734;</span><span id="stockLeft"> (${data.stock} Left)</span></h4>
+            </div>
+            <div id="buttons" class="buttons">
+                <button class="deleteBtn btn" onclick="closeEditModal()">CANCEL</button>
+                <button class="editBtn btn" onclick="updateData(`${data.id}`)">UPDATE</button>
+            </div>
+        </div> -->
+    </section>
+    <section id="addModal">
+        <div id="product" class="editproduct">
+            <div id="productImg" class="addProductImg">
+                <label for="addImgUrl">Img URL:</label>
+                <input id="addImgUrl" type="text" placeholder="paste the image url"><br>
+            </div>
+            <div id="productInfo" class="productInfo">
+                <label for="addCategory">Category:</label>
+                <input id="addCategory" type="text" placeholder="Enter a Category"><br>
+                <label for="addPID">PID:</label>
+                <input id="addPID" type="number" placeholder="Enter a Product Id"><br>
+                <label for="addBrand">Brand:</label>
+                <input id="addBrand" type="text" placeholder="Enter a Brand"><br>
+                <label for="addModel">Model : </label>
+                <input id="addModel" type="text" placeholder="Enter a Model"> <br>
+                <label for="addDescription">Description : </label>
+                <input id="addDescription" type="text" placeholder="Add a Description"><br>
+                <label for="addPrice">Price : </label>
+                <input id="addPrice" type="number" placeholder="Enter a price"><br>
+                <label for="addRating">Rating:</label>
+                <input id="addRating" type="number" placeholder="Add a Rating"><br>
+                <label for="addNoStock">Stock:</label>
+                <input id="addNoStock" type="number" placeholder="Enter a Stock"><br>
+                <label for="addDiscount">Discount:</label>
+                <input id="addDiscount" type="number" placeholder="Enter a Discount"><br>
+            </div>
+            <div id="buttons" class="buttons">
+                <button class="deleteBtn btn" onclick="closeAddEditModal()">CANCEL</button>
+                <button class="editBtn btn" onclick="addData()">UPDATE</button>
+            </div>
+        </div>
+    </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>

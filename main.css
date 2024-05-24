@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: white;
+    display: flex;
+    height: 80px;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 2px solid grey;
+    box-shadow: 0px 0px 5px 5px gray;
+    flex-wrap: wrap;
+    color: #064a82;
+}
+
+header img {
+    height: 30px;
+}
+
+header input {
+    all: unset;
+    width: 20rem;
+    height: 1.8rem;
+    border-radius: 15px;
+    padding-left: 10px;
+    background-color: rgb(252, 248, 248);
+    /* border: 2px solid rgb(55, 55, 171); */
+    box-shadow: 0 0 5px 1px rgb(55, 55, 171);
+}
+
+header input:focus{
+    box-shadow: 0 0 5px 2px rgb(55, 55, 171);
+}
+
+header h3:hover {
+    background-color: whitesmoke;
+    height: 1.8rem;
+    max-width: 300px;
+    padding: 2px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: rgb(16, 123, 212);
+    box-shadow: 0 0 5px 1px rgb(55, 55, 171)
+}
+
+@media screen and (max-width:1060px) {
+    header h3:not(#addItem):not(.menu-bar) {
+        display: none;
+    }
+}
+
+@media screen and (max-width:720px) {
+    header input {
+        width: 10rem;
+    }
+}
+
+@media screen and (max-width:500px) {
+    header input {
+        width: 7rem;
+    }
+    header img{
+        width: 6rem;
+    }
+}
+
+/*  */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:1200px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:720px) {
+    .products {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .productImg img {
+        max-height: 200px;
+    }
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    margin: 20px 0;
+    overflow: hidden;
+    background-color: white;
+    box-shadow:  0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.productImg img:hover{
+    scale: 1.2;
+    cursor: zoom-in;
+}
+
+.product:hover{
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.productImg img {
+    width: 100%;
+    max-height: 150px;
+}
+
+.productInfo {
+    min-height: 180px;
+}
+
+.productInfo>* {
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.addProductImg {
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+/*  */
+
+/* for rating */
+#rating {
+    background-color: green;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+#stockLeft {
+    color: red;
+}
+
+.des {
+    color: rgb(66, 66, 66);
+}
+
+.discount {
+    position: absolute;
+    height: 20px;
+    width: 150px;
+    background-color: rgb(29, 186, 29);
+    color: white;
+    text-align: center;
+    border-radius: 0%;
+    top: 5%;
+    right: -6%;
+    transform: rotate(30deg);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.btn {
+    all: unset;
+    padding: 2px 4px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.editBtn {
+    background-color: green;
+}
+
+.deleteBtn {
+    background-color: rgb(241, 13, 13);
+}
+
+.deleteBtn:hover {
+    background-color: rgb(177, 9, 9);
+}
+
+.editBtn:hover {
+    background-color: rgb(11, 99, 11);
+}
+
+#pId {
+    color: rgb(93, 91, 91);
+    font-size: small;
+}
+
+/* editmodel */
+#productDiv {
+    position: relative;
+}
+
+.editModal {
+    display: none;
+    position: fixed;
+    background-color: white;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.editproduct {
+    padding: 20px 20px;
+}
+
+/* blur */
+.blur {
+    filter: blur(10px);
+}
+
+/* adding a item */
+
+#addModal {
+    display: none;
+    position: fixed;
+    background-color: white;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4);
+}
