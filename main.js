@@ -1,11 +1,37 @@
 let dataBase = [];
 
 // //fetching products
-function fetchProducts() {
-  fetch("https://dummyjson.com/products")
+// function fetchProducts() {
+//   fetch("https://dummyjson.com/products")
+//     .then((res) => res.json())
+//     .then((data) => displayProducts(data.products))
+//     .catch((Error) => console.log(Error));
+// }
+
+// fetch product and display it based on pagination
+//implementing pagination
+let currentPage = 1;
+const limit = 15;
+
+function fetchProducts(skip = 0) {
+  fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`)
     .then((res) => res.json())
     .then((data) => displayProducts(data.products))
-    .catch((Error) => console.log(Error));
+    .catch((error) => console.log(error));
+}
+
+function nextpage(event) {
+  event.preventDefault();
+  currentPage++;
+  fetchProducts((currentPage - 1) * limit);
+}
+
+function prevpage(event) {
+  event.preventDefault();
+  if (currentPage > 1) {
+    currentPage--;
+    fetchProducts((currentPage - 1) * limit);
+  }
 }
 
 //fucntion to itrearte over the each data recieved from the API
@@ -15,6 +41,13 @@ function displayProducts(products) {
   console.log(dataBase);
   const productHtml = dataBase.map((data) => insertProduct(data)).join("");
   // console.log(productHtml);
+  const productDiv = document.getElementById("products");
+  productDiv.innerHTML = productHtml;
+}
+
+// to display product from search
+function displaySearchProducts(products) {
+  const productHtml = products.map((data) => insertProduct(data)).join("");
   const productDiv = document.getElementById("products");
   productDiv.innerHTML = productHtml;
 }
@@ -217,3 +250,39 @@ function closeAddEditModal() {
 }
 
 fetchProducts();
+
+// to search products
+
+const searchinput = document.getElementById("search");
+document.addEventListener("DOMContentLoaded", function (event) {
+  event.preventDefault();
+  let deBounceTimer;
+  searchinput.addEventListener("input", function () {
+    clearTimeout(deBounceTimer);
+    deBounceTimer = setTimeout(() => {
+      const searchname = searchinput.value.trim();
+      if (searchname.length === 0) {
+        fetchProducts();
+      }
+      // const filteredname =
+      //   searchname[0].toUpperCase() + searchname.slice(1).toLowerCase();
+      // console.log(filteredname);
+      console.log(searchname);
+      console.log("request sent after a 2 sec of inactivity");
+      fetch(`https://dummyjson.com/products/search?q=${searchname}`)
+        .then((result) => {
+          if (!result.ok) {
+            throw new Error(`HTTP error! Status: ${result.status}`);
+          }
+          return result.json();
+        })
+        .then((data) => {
+          console.log(data.products)
+          displaySearchProducts(data.products);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 2000);
+  });
+});

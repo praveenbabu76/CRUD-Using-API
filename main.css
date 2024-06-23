@@ -109,6 +109,7 @@ header h3:hover {
 .productImg img:hover{
     scale: 1.2;
     cursor: zoom-in;
+    animation: ease-out;
 }
 
 .product:hover{
@@ -241,4 +242,29 @@ header h3:hover {
     z-index: 1;
     overflow: hidden;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* footer */
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+.fBtn{
+    all: unset;
+    padding: 2px 4px;
+    border: 1px solid ;
+    color: rgb(55, 55, 171);
+    box-shadow: 0 0 5px 1px rgb(55, 55, 171);
+    font-weight: bolder;
+    border-radius: 5px;
+    margin: 10px 10px 20px 10px;
+    cursor: pointer;
+}
+
+.fBtn:hover{
+    scale: 1.2;
+    background-color:rgb(55, 55, 171) ;
+    color: white;
+    animation: ease-in-out;
 }
