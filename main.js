@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           return result.json();
         })
         .then((data) => {
-          console.log(data.products)
+          console.log(data.products);
           displaySearchProducts(data.products);
         })
         .catch((error) => {
